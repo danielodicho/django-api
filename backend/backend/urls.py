@@ -17,15 +17,19 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from todo import views
+from todo.views import todo_detail
+from django.conf.urls.static import static
+from django.conf import settings
 
 router = routers.DefaultRouter()
 router.register(r'todos', views.TodoView, 'todo')
-
+router.register(r'students', views.StudentView, 'student')
+router.register(r'downloads', views.DownloadView, )
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
+    path('items/', todo_detail),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('accounts/profile', include(router.urls))
 ]
 
 
