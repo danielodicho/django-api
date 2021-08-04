@@ -8,7 +8,7 @@ class StudentAdmin(admin.ModelAdmin):
     list_display = ('user_name', 'is_logged_in')
 
 class TodoAdmin(admin.ModelAdmin):
-    list_display = ('title', 'description', 'completed')
+    list_display = ('title', 'description', 'completed', 'owner', 'id')
 class DownloadLinksAdmin(admin.ModelAdmin):
     list_display = ('download_name', 'download_url')
 
