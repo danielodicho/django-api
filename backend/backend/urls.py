@@ -28,7 +28,7 @@ router.register(r'downloads', views.DownloadView, )
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
-    path('items/', todo_detail),
+    path('', todo_detail),
     path('accounts/', include('django.contrib.auth.urls')),
 ]
 
