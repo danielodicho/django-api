@@ -5,7 +5,7 @@ from .models import Todo, Student, download_link
 class StudentSerializer(serializers.ModelSerializer):  #available fields for the API
     class Meta:
         model = Student
-        fields = ('id', 'user_name', 'is_logged_in')
+        fields = ('id', 'user_name', 'is_logged_in', 'todo_backlog')
 
 
 class TodoSerializer(serializers.ModelSerializer):
