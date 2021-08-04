@@ -1,5 +1,5 @@
 from django.db import models
-
+from rest_framework import serializers
 
 # Create your models here.
 # class School_class(models.Model):
@@ -9,6 +9,10 @@ from django.db import models
 class Student(models.Model):  # model for registering a new student, parameters: username and login
     # status
     user_name = models.CharField(max_length=100)
+    todo_backlog = models.CharField(max_length=1000, null=True, blank=True)
+    # todo_todo =
+    # todo_doing =
+    # todo_done =
     is_logged_in = models.BooleanField(default=False)
 
     def __str__(self):
