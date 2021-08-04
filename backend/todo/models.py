@@ -1,5 +1,5 @@
 from django.db import models
-from rest_framework import serializers
+from django.contrib.postgres.fields import ArrayField
 
 # Create your models here.
 # class School_class(models.Model):
@@ -10,6 +10,8 @@ class Student(models.Model):  # model for registering a new student, parameters:
     # status
     user_name = models.CharField(max_length=100)
     todo_backlog = models.CharField(max_length=1000, null=True, blank=True)
+    todo_list = ArrayField(models.CharField(max_length=200), blank=True, null=True)
+
     # todo_todo =
     # todo_doing =
     # todo_done =
