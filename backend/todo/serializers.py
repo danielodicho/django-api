@@ -1,13 +1,16 @@
 from rest_framework import serializers
-from .models import Todo, Student, download_link
+from .models import Todo, Student, download_link, School_Class
 
 
-
+class SchoolSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = School_Class
+        fields = ('class_name', 'id')
 
 class StudentSerializer(serializers.ModelSerializer):  #available fields for the API
     class Meta:
         model = Student
-        fields = ('id', 'user_name', 'is_logged_in', 'todo_list', 'cash', 'xp')
+        fields = ('id', 'user_name', 'is_logged_in', 'cash', 'xp', 'class_name', 'backlog', 'to_do', 'doing', 'done')
 
 
 class TodoSerializer(serializers.ModelSerializer):

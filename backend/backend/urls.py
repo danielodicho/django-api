@@ -25,6 +25,7 @@ router = routers.DefaultRouter()
 router.register(r'todos', views.TodoView, 'todo')
 router.register(r'students', views.StudentView, 'student')
 router.register(r'downloads', views.DownloadView, )
+router.register(r'School', views.SchoolView, )
 
 
 urlpatterns = [
