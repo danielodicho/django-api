@@ -7,7 +7,12 @@ from .models import Todo, Student, download_link
 # Create your views here
 
 def todo_detail(request):  # just for debug, make sure to delete this properly
-    obj = Todo.objects.get(id=1)
+    user_id = Student.objects.get(user_name = 'torgeir')
+    change_link = Student.objects.all()
+    for x in change_link:
+        y = x.user_name
+        Student
+    obj = Todo.objects.filter(owner=user_id.id)
     context = {
         'object': obj
     }
@@ -23,3 +28,4 @@ class TodoView(viewsets.ModelViewSet):
 class DownloadView(viewsets.ModelViewSet):
     serializer_class = DownloadSerializer
     queryset = download_link.objects.all()
+

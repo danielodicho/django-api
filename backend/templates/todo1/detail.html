@@ -5,8 +5,12 @@
     <title>Title</title>
 </head>
 <body>
-<h1> {{ object.title }} </h1>
-<p> {{ object.description }} </p>
+
+{% for item in object %}
+    <h1> {{ item.title }} </h1>
+<p> {{ item.description }} </p>
+{% endfor %}
+
 
 </body>
 </html>
