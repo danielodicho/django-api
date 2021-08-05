@@ -4,6 +4,7 @@ from .models import Todo, Student, download_link
 
 # Register your models here.
 
+
 class StudentAdmin(admin.ModelAdmin):
     list_display = ('user_name', 'is_logged_in', 'todo_list')
 

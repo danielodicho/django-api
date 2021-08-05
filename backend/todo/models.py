@@ -10,8 +10,9 @@ class Student(models.Model):  # model for registering a new student, parameters:
     # status
     user_name = models.CharField(max_length=100)
     todo_backlog = models.CharField(max_length=1000, null=True, blank=True)
-    todo_list = ArrayField(models.CharField(max_length=200), blank=True, null=True)
-
+    todo_list = ArrayField(ArrayField(models.CharField(max_length=1000), blank=True, null=True), blank=True, null=True)
+    xp = models.IntegerField( default=0)
+    cash = models.IntegerField(default=0)
     # todo_todo =
     # todo_doing =
     # todo_done =
@@ -32,8 +33,10 @@ class Todo(models.Model):  # 'to do widget, parameters:title, description. Boole
 
 
 class download_link(models.Model):
+    checkpoint = models.IntegerField(default=0)
     download_name = models.CharField(max_length=200)
     download_url = models.URLField(max_length=200)
-
+    video_url = models.URLField(max_length=200, blank=True)
+    challenges = ArrayField(models.CharField(max_length=1000), blank=True, null=True)
     def __str__(self):
         return self.download_name
