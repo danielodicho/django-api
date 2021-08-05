@@ -7,7 +7,7 @@ from .models import Todo, Student, download_link, School_Class
 # Create your views here
 
 def todo_detail(request):  # just for debug, make sure to delete this properly
-    user_id = Student.objects.get(user_name = 'torgeir')
+    user_id = Student.objects.get(user_name = 'daniel')
     change_link = Student.objects.all()
     for x in change_link:
         y = x.user_name
