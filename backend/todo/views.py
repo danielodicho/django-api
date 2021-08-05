@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .serializers import TodoSerializer, StudentSerializer,DownloadSerializer
-from .models import Todo, Student, download_link
+from .serializers import TodoSerializer, StudentSerializer,DownloadSerializer, SchoolSerializer
+from .models import Todo, Student, download_link, School_Class
 
 
 # Create your views here
@@ -17,6 +17,10 @@ def todo_detail(request):  # just for debug, make sure to delete this properly
         'object': obj
     }
     return render(request, 'todo1/detail.html', context)
+
+class SchoolView(viewsets.ModelViewSet):
+    serializer_class = SchoolSerializer
+    queryset = School_Class.objects.all()
 
 class StudentView(viewsets.ModelViewSet):
     serializer_class = StudentSerializer

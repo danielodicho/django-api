@@ -2,21 +2,28 @@ from django.db import models
 from django.contrib.postgres.fields import ArrayField
 
 # Create your models here.
-# class School_class(models.Model):
-#     class_name = models.CharField(max_length=100)
+class School_Class(models.Model):
+    class_name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.class_name
 #
 
 class Student(models.Model):  # model for registering a new student, parameters: username and login
     # status
     user_name = models.CharField(max_length=100)
-    todo_backlog = models.CharField(max_length=1000, null=True, blank=True)
-    todo_list = ArrayField(ArrayField(models.CharField(max_length=1000), blank=True, null=True), blank=True, null=True)
+    backlog = ArrayField(models.CharField(max_length=1000), blank=True, null=True)
+    to_do = ArrayField(models.CharField(max_length=1000), blank=True, null=True)
+    doing =ArrayField(models.CharField(max_length=1000), blank=True, null=True)
+    done = ArrayField(models.CharField(max_length=1000), blank=True, null=True)
+
     xp = models.IntegerField( default=0)
     cash = models.IntegerField(default=0)
     # todo_todo =
     # todo_doing =
     # todo_done =
     is_logged_in = models.BooleanField(default=False)
+    class_name = models.ForeignKey(School_Class, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.user_name
